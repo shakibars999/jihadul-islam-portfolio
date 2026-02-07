@@ -157,8 +157,8 @@ nav{
                 &.hero-greetings{
                     /* background: green; */
                     .salam{
-                        color: chocolate;
-                        font-size: 5rem;
+                        /* color: chocolate; */
+                        font-size: 3rem;
                         span{
                             color: black;
                             font-size: 3rem;
@@ -266,6 +266,7 @@ nav{
             }
         }
         .hero-image{
+            height: 100vh;
             align-self: start;
             /* margin: auto; */
             flex: 1;
@@ -308,37 +309,53 @@ nav{
         width: 0ch;
         --chars: 20;
     }
-    15% {
+    12.5% {
         content: "Exceptional Graphics";
         width: 17ch;
         }
-        30% {
+    25% {
         content: "Exceptional Graphics";
         width: 0ch;
     }
 
+  /* Motion Graphics (13ch) */
+    26% {
+        content: "Motion Graphics";
+        width: 0ch;
+        --chars: 15;
+    }
+    35.5% {
+        content: "Motion Graphics";
+        width: 13.3ch;
+        }
+    50% {
+        content: "Motion Graphics";
+        width: 0ch;
+    }
+
+
   /* Video Editing (13ch) */
-    33% {
+    51% {
         content: "Video Editing";
         width: 0ch;
         --chars: 13;
     }
-    48% {
+    63.5% {
         content: "Video Editing";
         width: 10.5ch;
     }
-    63% {
+    75% {
         content: "Video Editing";
         width: 0ch;
     }
 
   /* Label & Packaging Design (24ch) */
-    66% {
+    76% {
         content: "Label & Packaging Design";
         width: 0ch;
         --chars: 24;
     }
-    81% {
+    88% {
         content: "Label & Packaging Design";
         width: 20.5ch;
     }
@@ -358,11 +375,12 @@ nav{
 
     /*! start Navbar Section */
 #Brand-Section{
+    padding-top: 8rem;
     h2{
         font-family: Arial, Helvetica, sans-serif;
         font-size: 4rem;
         font-weight: bolder;
-        margin-block: 5rem 2rem;
+        margin-bottom: 2rem;
         text-align: center;
         span{
             color: orange;
@@ -372,6 +390,7 @@ nav{
         width: 100%;
         overflow: hidden;
         display: flex;
+        gap: 10rem;
         /* background: radial-gradient(circle farthest-corner, transparent 80%, red 100%); */
         position: relative;
         &::after, &::before{
@@ -397,8 +416,11 @@ nav{
         }
         .brand-container{
             display: flex;
+            gap: 10rem;
             animation: slidingAnimation 20s linear infinite;
             a img{
+                width: 10rem;
+                aspect-ratio: 1/1;
                 filter: grayscale(100);
                 transition-duration: .2s;
                 &:hover{
@@ -549,7 +571,7 @@ nav{
             font-weight: bolder;
             margin-bottom: 2rem;
             span{
-                color: orange;
+                color: #32026e;
             }
         }
         .skills-container{
@@ -564,13 +586,15 @@ nav{
             flex-wrap: wrap;
             gap: 5rem;
             .skill{
+                /* flex: 1; */
                 color: white;
                 background: #05000b;
                 padding: 2rem;
                 border-radius: 1rem;
                 cursor: pointer;
                 align-self: center;
-                flex: 1;
+                /* flex: 1; */
+                width: 20%;
                 display: flex;
                 flex-direction: column;
                 gap: 1rem;
@@ -601,6 +625,75 @@ nav{
         }
     }
 }
+.skill-popup{
+    width: 50%;
+    color: white;
+    background: #470399;
+    padding: 100px;
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    translate: -50% -50%;
+    h2{
+        /* text-align: center; */
+        margin-bottom: 10px;
+        align-content: center;
+        span{
+            font-size: 1rem;
+            background: #f68c09;
+            display: inline-block;
+            padding: 2px;
+            border-radius: 2px;
+        }
+    }
+    h3, b{
+        color: #f68c09;
+        margin-right: 10px;
+    }
+    ul{
+        list-style: square;
+        list-style-position: inside;
+    }
+    .popup-btn-container{
+        margin-top: 20px;
+        display: flex;
+        gap: 30px;
+        /* justify-content: space-around; */
+    }
+    a{
+        font-size: 1.6rem;
+        color: white;
+        background: #f68c09;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+        &:hover{
+            background: #c57008;
+        }
+    }
+    .popup-close{
+        font-size: 30px;
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        cursor: pointer;
+        &:hover{
+            color: red;
+        }
+    }
+}
+.popup-background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100lvh;
+    background: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('public/images/workImage/magazine_template.jpg') no-repeat center/cover;
+}
     /*! end SKILLS & ABILITIES Section */
 
 
@@ -612,6 +705,7 @@ nav{
     /* background: rgba(51, 2, 110, 0.8); */
     padding-block: 8rem 2rem;
     position: relative;
+    overflow: hidden;
     h2{
         font-family: Arial, Helvetica, sans-serif;
         font-size: 4rem;
@@ -629,19 +723,19 @@ nav{
         margin-block: 5rem;
         display: flex;
         gap: 3rem;
-        overflow: hidden;
-        &:nth-child(even) .class-video-container{
-            /* padding: 5rem; */
+        /* overflow: hidden; */
+        /* &:nth-child(even) .class-video-container{
+            padding: 5rem;
             transform: translateX(calc(-200% + 100vw));
             animation: slidingAnimation2 30s linear infinite;
-        }
+        } */
         &:hover .class-video-container{
             animation-play-state: paused;
         }
         .class-video-container{
             display: flex;
             gap: 3rem;
-            animation: slidingAnimation 30s linear infinite;
+            /* animation: slidingAnimation 30s linear infinite; */
             .class-video{
                 flex: 0 0 30rem;
                 /* background: url('https://img.youtube.com/vi/'var(--link)'/maxresdefault.jpg') no-repeat center/cover; */
@@ -671,15 +765,19 @@ nav{
     }
     .youtube-channel-container{
         display: flex;
+        gap: 1rem;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         img{
-            width: 20rem;
+            width: 17rem;
+            height: 17rem;
+            border-radius: 50%;
+            border: 3px solid white;
         }
-        h3 a{
-            font-size: 3rem;
-            color: #940808;
+        h3{
+            font-size: 2rem;
+            color: white;
             background: #f68c09;
             padding: 1rem;
             display: inline-block;
@@ -688,6 +786,36 @@ nav{
     }
 }
     /*! end SKILLS & ABILITIES Section */
+
+
+
+  /*! start ANIMATION BAR section */
+#Animation-Bar-Section{
+  /* -webkit-mask-image: linear-gradient(90deg, transparent 0%, var(--whiteColor) 20%, var(--whiteColor) 80%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, var(--whiteColor) 20%, var(--whiteColor) 80%, transparent 100%); */
+  overflow: hidden;
+  margin-block: 5rem;
+  .animation-bar-wrapper{
+    font-size: 3rem;
+    white-space: nowrap;
+    translate: 1rem;
+    display: flex;
+    &:nth-child(2){
+      translate: 720px;
+    }
+    h3{
+      color: black;
+      background: white;
+      img{
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+  /*! end ANIMATION BAR section */
 
 
 
@@ -888,7 +1016,7 @@ nav{
 
     /*! end SKILLS & ABILITIES Section */
 #Slider-Section{
-    margin-block: 5rem;
+    margin-top: 5rem;
     .swiper {
       width: 50%;
       height: 300px;
@@ -915,8 +1043,10 @@ nav{
               align-items: center;
               gap: 1rem;
               img{
-                  width: 5rem;
-                  height: 5rem;
+                  /* width: 5rem;
+                  height: 5rem; */
+                  width: 100%;
+                  height: 100%;
               }
               h3{
                 color: #f68c09;
@@ -933,15 +1063,18 @@ nav{
 
     /*! start CONTACT US Section */
 #Contact-Us{
+    padding-block: 8rem;
     .contact-container{
         background: white;
-        box-shadow: 0 0 1rem rgba(0,0,0,0.3);
         background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 1rem rgba(0,0,0,0.3);
         backdrop-filter: blur(2rem);
-        border-radius: 2rem;
+        padding-block: 2rem;
         width: 70%;
+        border-radius: 2rem;
         display: flex;
-        margin: 5rem auto;
+        justify-content: space-around;
+        margin: auto;
         overflow: hidden;
         .form-image{
             img{
@@ -1001,6 +1134,9 @@ footer{
         /* justify-content: space-between; */
         .footer-item{
             /* width: 30%; */
+            a{
+                color: white;
+            }
             &:first-child{
                 width: 40%;
             }
@@ -1208,9 +1344,6 @@ footer{
 /* #181a1b */
 
 #backToTop{
-    position: fixed;
-    top: -10%;
-    right: 2rem;
     background: #2606b4;
     color: white;
     padding: 1rem 2rem;
@@ -1220,6 +1353,10 @@ footer{
     cursor: pointer;
     font-size: 1.6rem;
     transition-duration: .3s;
+    position: fixed;
+    top: -10%;
+    right: 2rem;
+    z-index: 1;
     /* display: none; */
     &:hover{
         background: #1a047e;
